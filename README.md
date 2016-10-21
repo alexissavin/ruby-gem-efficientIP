@@ -51,6 +51,11 @@ Each available method rely on the following naming convention for intuitive usag
 	<module>_<object>_<action>
 ```
 
+Supported modules are :
+
+* ip (IPAM - IP Address Management)
+* vlm (VLAN Manager - VLAN Resources Management)
+
 ## Mandatory Parameters
 Some methods require specific parameters combination. These parameters are listed in the method list below in the following format :
 
@@ -82,6 +87,10 @@ This clause can be applied on any output field combination using an SQL ANSI sty
 
 This GEM wraps the following SOLIDserver API calls, allowing you to interract with SOLIDserver DDI solution.
 
+## Available Methods :
+
+This GEM wraps the following SOLIDserver API calls, allowing you to interract with SOLIDserver DDI solution.
+
 ### Method - ip_site_add
 Description
 
@@ -108,7 +117,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -148,7 +156,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -189,22 +196,22 @@ Available Input Parameters :
 
 Available Output Fields :
 
-	* site_is_template
-	* site_id
+	* site_is_template - Space is a template
+	* site_id - Space ID
 	* tree_level
 	* tree_path
 	* tree_id_path
 	* site_is_default
-	* site_name
-	* site_description
-	* parent_site_id
-	* parent_site_name
-	* site_class_name
+	* site_name - Space name
+	* site_description - Space description
+	* parent_site_id - Space parent ID
+	* parent_site_name - Space parent name
+	* site_class_name - Space class name
 	* parent_site_class_name
 	* row_enabled
 	* multistatus
-	* site_class_parameters
-	* site_class_parameters_properties
+	* site_class_parameters - Space class parameters
+	* site_class_parameters_properties - Class parameters properties
 	* site_class_parameters_inheritance_source
 	* parent_site_class_parameters
 	* parent_site_class_parameters_properties
@@ -220,22 +227,22 @@ Available Input Parameters :
 
 Available Output Fields :
 
-	* site_is_template
-	* site_id
+	* site_is_template - Space is a template
+	* site_id - Space ID
 	* tree_level
 	* tree_path
 	* tree_id_path
 	* site_is_default
-	* site_name
-	* site_description
-	* parent_site_id
-	* parent_site_name
-	* site_class_name
+	* site_name - Space name
+	* site_description - Space description
+	* parent_site_id - Space parent ID
+	* parent_site_name - Space parent name
+	* site_class_name - Space class name
 	* parent_site_class_name
 	* row_enabled
 	* multistatus
-	* site_class_parameters
-	* site_class_parameters_properties
+	* site_class_parameters - Space class parameters
+	* site_class_parameters_properties - Class parameters properties
 	* site_class_parameters_inheritance_source
 	* parent_site_class_parameters
 	* parent_site_class_parameters_properties
@@ -257,7 +264,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -318,7 +324,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -379,7 +384,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -421,24 +425,24 @@ Available Input Parameters :
 Available Output Fields :
 
 	* type
-	* subnet_id
+	* subnet_id - Subnet ID
 	* start_ip_addr
 	* end_ip_addr
-	* subnet_name
-	* subnet_size
+	* subnet_name - Subnet name
+	* subnet_size - Subnet size
 	* vlsm_block_id
-	* vlmvlan_id
-	* subnet_level
+	* vlmvlan_id - Subnet VLAN ID
+	* subnet_level - Subnet level
 	* subnet_path
-	* subnet_class_name
-	* parent_subnet_id
+	* subnet_class_name - Subnet class name
+	* parent_subnet_id - Parent subnet id
 	* vlsm_subnet_id
 	* row_enabled
 	* subnet_is_valid
-	* site_id
+	* site_id - Space ID
 	* waiting_state
 	* waiting_status
-	* is_terminal
+	* is_terminal - Subnet is terminal
 	* subnet_allocated_size
 	* subnet_allocated_percent
 	* subnet_used_size
@@ -447,14 +451,14 @@ Available Output Fields :
 	* subnet_ip_used_percent
 	* subnet_ip_free_size
 	* is_in_orphan
-	* lock_network_broadcast
-	* site_description
-	* site_name
-	* site_is_template
+	* lock_network_broadcast - Lock network and broadcast addresses
+	* site_description - Space description
+	* site_name - Space name
+	* site_is_template - Space is a template
 	* tree_level
 	* tree_path
 	* tree_id_path
-	* site_class_name
+	* site_class_name - Space class name
 	* parent_subnet_name
 	* parent_start_ip_addr
 	* parent_end_ip_addr
@@ -464,11 +468,11 @@ Available Output Fields :
 	* parent_subnet_class_name
 	* parent_is_terminal
 	* parent_vlsm_subnet_id
-	* parent_site_id
-	* parent_site_name
+	* parent_site_id - Space parent ID
+	* parent_site_name - Space parent name
 	* site_parent_site_id
-	* vlsm_site_id
-	* vlsm_site_name
+	* vlsm_site_id - VLSM space ID
+	* vlsm_site_name - VLSM space name
 	* vlmvlan_vlan_id
 	* vlmvlan_name
 	* vlmdomain_id
@@ -476,11 +480,11 @@ Available Output Fields :
 	* vlmrange_id
 	* vlmrange_name
 	* multistatus
-	* subnet_class_parameters
-	* subnet_class_parameters_properties
+	* subnet_class_parameters - Subnet class parameters
+	* subnet_class_parameters_properties - Subnet class parameters properties
 	* subnet_class_parameters_inheritance_source
-	* site_class_parameters
-	* site_class_parameters_properties
+	* site_class_parameters - Space class parameters
+	* site_class_parameters_properties - Class parameters properties
 	* parent_subnet_class_parameters
 	* parent_subnet_class_parameters_properties
 
@@ -496,24 +500,24 @@ Available Input Parameters :
 Available Output Fields :
 
 	* type
-	* subnet_id
+	* subnet_id - Subnet ID
 	* start_ip_addr
 	* end_ip_addr
-	* subnet_name
-	* subnet_size
+	* subnet_name - Subnet name
+	* subnet_size - Subnet size
 	* vlsm_block_id
-	* vlmvlan_id
-	* subnet_level
+	* vlmvlan_id - Subnet VLAN ID
+	* subnet_level - Subnet level
 	* subnet_path
-	* subnet_class_name
-	* parent_subnet_id
+	* subnet_class_name - Subnet class name
+	* parent_subnet_id - Parent subnet id
 	* vlsm_subnet_id
 	* row_enabled
 	* subnet_is_valid
-	* site_id
+	* site_id - Space ID
 	* waiting_state
 	* waiting_status
-	* is_terminal
+	* is_terminal - Subnet is terminal
 	* subnet_allocated_size
 	* subnet_allocated_percent
 	* subnet_used_size
@@ -522,14 +526,14 @@ Available Output Fields :
 	* subnet_ip_used_percent
 	* subnet_ip_free_size
 	* is_in_orphan
-	* lock_network_broadcast
-	* site_description
-	* site_name
-	* site_is_template
+	* lock_network_broadcast - Lock network and broadcast addresses
+	* site_description - Space description
+	* site_name - Space name
+	* site_is_template - Space is a template
 	* tree_level
 	* tree_path
 	* tree_id_path
-	* site_class_name
+	* site_class_name - Space class name
 	* parent_subnet_name
 	* parent_start_ip_addr
 	* parent_end_ip_addr
@@ -539,11 +543,11 @@ Available Output Fields :
 	* parent_subnet_class_name
 	* parent_is_terminal
 	* parent_vlsm_subnet_id
-	* parent_site_id
-	* parent_site_name
+	* parent_site_id - Space parent ID
+	* parent_site_name - Space parent name
 	* site_parent_site_id
-	* vlsm_site_id
-	* vlsm_site_name
+	* vlsm_site_id - VLSM space ID
+	* vlsm_site_name - VLSM space name
 	* vlmvlan_vlan_id
 	* vlmvlan_name
 	* vlmdomain_id
@@ -551,11 +555,11 @@ Available Output Fields :
 	* vlmrange_id
 	* vlmrange_name
 	* multistatus
-	* subnet_class_parameters
-	* subnet_class_parameters_properties
+	* subnet_class_parameters - Subnet class parameters
+	* subnet_class_parameters_properties - Subnet class parameters properties
 	* subnet_class_parameters_inheritance_source
-	* site_class_parameters
-	* site_class_parameters_properties
+	* site_class_parameters - Space class parameters
+	* site_class_parameters_properties - Class parameters properties
 	* parent_subnet_class_parameters
 	* parent_subnet_class_parameters_properties
 
@@ -587,7 +591,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -626,7 +629,7 @@ Available Output Fields :
 	* find_type
 	* cost
 	* block_id
-	* site_id
+	* site_id - Space ID
 
 ### Method - ip_subnet6_add
 Description
@@ -673,7 +676,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -732,7 +734,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -774,36 +775,36 @@ Available Input Parameters :
 Available Output Fields :
 
 	* type
-	* subnet6_id
+	* subnet6_id - Subnet6 ID
 	* start_ip6_addr
 	* end_ip6_addr
-	* subnet6_name
-	* subnet_size
+	* subnet6_name - Subnet6 name
+	* subnet_size - Subnet size
 	* vlsm_block6_id
-	* vlmvlan_id
-	* subnet_level
+	* vlmvlan_id - Subnet VLAN ID
+	* subnet_level - Subnet level
 	* subnet_path
-	* subnet6_class_name
-	* parent_subnet6_id
+	* subnet6_class_name - Subnet class name
+	* parent_subnet6_id - Parent subnet6 id
 	* vlsm_subnet6_id
 	* row_enabled
 	* subnet6_is_valid
-	* lock_network_broadcast
-	* site_id
+	* lock_network_broadcast - Lock network and broadcast addresses
+	* site_id - Space ID
 	* waiting_state
 	* waiting_status
-	* is_terminal
-	* subnet6_prefix
+	* is_terminal - Subnet is terminal
+	* subnet6_prefix - Subnet6 prefix
 	* percent_allocated
 	* percent_used
 	* is_in_orphan
-	* site_description
-	* site_name
-	* site_is_template
+	* site_description - Space description
+	* site_name - Space name
+	* site_is_template - Space is a template
 	* tree_level
 	* tree_path
 	* tree_id_path
-	* site_class_name
+	* site_class_name - Space class name
 	* parent_subnet6_name
 	* parent_start_ip6_addr
 	* parent_end_ip6_addr
@@ -816,11 +817,11 @@ Available Output Fields :
 	* parent_subnet6_prefix
 	* parent_percent_allocated
 	* parent_percent_used
-	* parent_site_id
-	* parent_site_name
+	* parent_site_id - Space parent ID
+	* parent_site_name - Space parent name
 	* site_parent_site_id
-	* vlsm_site_id
-	* vlsm_site_name
+	* vlsm_site_id - VLSM space ID
+	* vlsm_site_name - VLSM space name
 	* vlmvlan_vlan_id
 	* vlmvlan_name
 	* vlmdomain_id
@@ -828,11 +829,11 @@ Available Output Fields :
 	* vlmrange_id
 	* vlmrange_name
 	* multistatus
-	* subnet6_class_parameters
-	* subnet6_class_parameters_properties
+	* subnet6_class_parameters - Subnet class parameters
+	* subnet6_class_parameters_properties - Subnet class parameters properties
 	* subnet6_class_parameters_inheritance_source
-	* site_class_parameters
-	* site_class_parameters_properties
+	* site_class_parameters - Space class parameters
+	* site_class_parameters_properties - Class parameters properties
 	* parent_subnet6_class_parameters
 	* parent_subnet6_class_parameters_properties
 
@@ -848,36 +849,36 @@ Available Input Parameters :
 Available Output Fields :
 
 	* type
-	* subnet6_id
+	* subnet6_id - Subnet6 ID
 	* start_ip6_addr
 	* end_ip6_addr
-	* subnet6_name
-	* subnet_size
+	* subnet6_name - Subnet6 name
+	* subnet_size - Subnet size
 	* vlsm_block6_id
-	* vlmvlan_id
-	* subnet_level
+	* vlmvlan_id - Subnet VLAN ID
+	* subnet_level - Subnet level
 	* subnet_path
-	* subnet6_class_name
-	* parent_subnet6_id
+	* subnet6_class_name - Subnet class name
+	* parent_subnet6_id - Parent subnet6 id
 	* vlsm_subnet6_id
 	* row_enabled
 	* subnet6_is_valid
-	* lock_network_broadcast
-	* site_id
+	* lock_network_broadcast - Lock network and broadcast addresses
+	* site_id - Space ID
 	* waiting_state
 	* waiting_status
-	* is_terminal
-	* subnet6_prefix
+	* is_terminal - Subnet is terminal
+	* subnet6_prefix - Subnet6 prefix
 	* percent_allocated
 	* percent_used
 	* is_in_orphan
-	* site_description
-	* site_name
-	* site_is_template
+	* site_description - Space description
+	* site_name - Space name
+	* site_is_template - Space is a template
 	* tree_level
 	* tree_path
 	* tree_id_path
-	* site_class_name
+	* site_class_name - Space class name
 	* parent_subnet6_name
 	* parent_start_ip6_addr
 	* parent_end_ip6_addr
@@ -890,11 +891,11 @@ Available Output Fields :
 	* parent_subnet6_prefix
 	* parent_percent_allocated
 	* parent_percent_used
-	* parent_site_id
-	* parent_site_name
+	* parent_site_id - Space parent ID
+	* parent_site_name - Space parent name
 	* site_parent_site_id
-	* vlsm_site_id
-	* vlsm_site_name
+	* vlsm_site_id - VLSM space ID
+	* vlsm_site_name - VLSM space name
 	* vlmvlan_vlan_id
 	* vlmvlan_name
 	* vlmdomain_id
@@ -902,11 +903,11 @@ Available Output Fields :
 	* vlmrange_id
 	* vlmrange_name
 	* multistatus
-	* subnet6_class_parameters
-	* subnet6_class_parameters_properties
+	* subnet6_class_parameters - Subnet class parameters
+	* subnet6_class_parameters_properties - Subnet class parameters properties
 	* subnet6_class_parameters_inheritance_source
-	* site_class_parameters
-	* site_class_parameters_properties
+	* site_class_parameters - Space class parameters
+	* site_class_parameters_properties - Class parameters properties
 	* parent_subnet6_class_parameters
 	* parent_subnet6_class_parameters_properties
 
@@ -936,7 +937,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -974,7 +974,7 @@ Available Output Fields :
 	* find_type
 	* cost
 	* block6_id
-	* site_id
+	* site_id - Space ID
 
 ### Method - ip_pool_add
 Description
@@ -1005,7 +1005,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -1048,7 +1047,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -1089,41 +1087,41 @@ Available Input Parameters :
 
 Available Output Fields :
 
-	* site_name
-	* site_id
-	* site_description
-	* site_class_name
-	* site_is_template
+	* site_name - Space name
+	* site_id - Space ID
+	* site_description - Space description
+	* site_class_name - Space class name
+	* site_is_template - Space is a template
 	* tree_path
-	* pool_id
-	* pool_name
-	* pool_class_name
-	* pool_read_only
+	* pool_id - Pool ID
+	* pool_name - Pool name
+	* pool_class_name - Pool class name
+	* pool_read_only - Pool is in read only mode
 	* start_ip_addr
 	* end_ip_addr
 	* pool_start_ip_addr
 	* pool_end_ip_addr
-	* pool_size
+	* pool_size - Pool size
 	* parent_subnet_name
-	* parent_subnet_id
+	* parent_subnet_id - Parent Subnet ID
 	* parent_subnet_size
 	* vlsm_subnet_id
 	* parent_subnet_class_name
-	* subnet_name
+	* subnet_name - Subnet name
 	* vlsm_block_id
-	* subnet_id
+	* subnet_id - Subnet ID
 	* subnet_start_ip_addr
 	* subnet_end_ip_addr
-	* subnet_size
-	* subnet_class_name
+	* subnet_size - Subnet size
+	* subnet_class_name - Subnet class name
 	* multistatus
-	* pool_class_parameters
-	* pool_class_parameters_properties
+	* pool_class_parameters - Pool class parameters
+	* pool_class_parameters_properties - Class parameters properties
 	* pool_class_parameters_inheritance_source
-	* site_class_parameters
-	* site_class_parameters_properties
-	* subnet_class_parameters
-	* subnet_class_parameters_properties
+	* site_class_parameters - Space class parameters
+	* site_class_parameters_properties - Class parameters properties
+	* subnet_class_parameters - Subnet class parameters
+	* subnet_class_parameters_properties - Subnet class parameters properties
 
 ### Method - ip_pool_info
 Description
@@ -1136,41 +1134,41 @@ Available Input Parameters :
 
 Available Output Fields :
 
-	* site_name
-	* site_id
-	* site_description
-	* site_class_name
-	* site_is_template
+	* site_name - Space name
+	* site_id - Space ID
+	* site_description - Space description
+	* site_class_name - Space class name
+	* site_is_template - Space is a template
 	* tree_path
-	* pool_id
-	* pool_name
-	* pool_class_name
-	* pool_read_only
+	* pool_id - Pool ID
+	* pool_name - Pool name
+	* pool_class_name - Pool class name
+	* pool_read_only - Pool is in read only mode
 	* start_ip_addr
 	* end_ip_addr
 	* pool_start_ip_addr
 	* pool_end_ip_addr
-	* pool_size
+	* pool_size - Pool size
 	* parent_subnet_name
-	* parent_subnet_id
+	* parent_subnet_id - Parent Subnet ID
 	* parent_subnet_size
 	* vlsm_subnet_id
 	* parent_subnet_class_name
-	* subnet_name
+	* subnet_name - Subnet name
 	* vlsm_block_id
-	* subnet_id
+	* subnet_id - Subnet ID
 	* subnet_start_ip_addr
 	* subnet_end_ip_addr
-	* subnet_size
-	* subnet_class_name
+	* subnet_size - Subnet size
+	* subnet_class_name - Subnet class name
 	* multistatus
-	* pool_class_parameters
-	* pool_class_parameters_properties
+	* pool_class_parameters - Pool class parameters
+	* pool_class_parameters_properties - Class parameters properties
 	* pool_class_parameters_inheritance_source
-	* site_class_parameters
-	* site_class_parameters_properties
-	* subnet_class_parameters
-	* subnet_class_parameters_properties
+	* site_class_parameters - Space class parameters
+	* site_class_parameters_properties - Class parameters properties
+	* subnet_class_parameters - Subnet class parameters
+	* subnet_class_parameters_properties - Subnet class parameters properties
 
 ### Method - ip_pool_delete
 Description
@@ -1197,7 +1195,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -1239,7 +1236,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -1281,7 +1277,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -1322,41 +1317,41 @@ Available Input Parameters :
 
 Available Output Fields :
 
-	* site_name
-	* site_id
-	* site_description
-	* site_class_name
-	* site_is_template
+	* site_name - Space name
+	* site_id - Space ID
+	* site_description - Space description
+	* site_class_name - Space class name
+	* site_is_template - Space is a template
 	* tree_path
-	* pool6_id
-	* pool6_name
-	* pool6_class_name
-	* pool6_read_only
+	* pool6_id - Pool6 ID
+	* pool6_name - Pool6 name
+	* pool6_class_name - Pool6 class name
+	* pool6_read_only - Pool6 is in read only mode
 	* start_ip6_addr
 	* end_ip6_addr
 	* pool6_start_ip6_addr
 	* pool6_end_ip6_addr
 	* pool6_size
 	* parent_subnet6_name
-	* parent_subnet6_id
+	* parent_subnet6_id - Parent Subnet6 ID
 	* vlsm_subnet6_id
 	* parent_subnet6_prefix
 	* parent_subnet6_class_name
-	* subnet6_name
+	* subnet6_name - Subnet6 name
 	* vlsm_block6_id
-	* subnet6_id
+	* subnet6_id - Subnet6 ID
 	* subnet6_start_ip6_addr
 	* subnet6_end_ip6_addr
-	* subnet6_class_name
-	* subnet6_prefix
+	* subnet6_class_name - Subnet class name
+	* subnet6_prefix - Subnet6 prefix
 	* multistatus
-	* pool6_class_parameters
-	* pool6_class_parameters_properties
+	* pool6_class_parameters - Pool6 class parameters
+	* pool6_class_parameters_properties - Class parameters properties
 	* pool6_class_parameters_inheritance_source
-	* site_class_parameters
-	* site_class_parameters_properties
-	* subnet6_class_parameters
-	* subnet6_class_parameters_properties
+	* site_class_parameters - Space class parameters
+	* site_class_parameters_properties - Class parameters properties
+	* subnet6_class_parameters - Subnet class parameters
+	* subnet6_class_parameters_properties - Subnet class parameters properties
 
 ### Method - ip_pool6_info
 Description
@@ -1369,41 +1364,41 @@ Available Input Parameters :
 
 Available Output Fields :
 
-	* site_name
-	* site_id
-	* site_description
-	* site_class_name
-	* site_is_template
+	* site_name - Space name
+	* site_id - Space ID
+	* site_description - Space description
+	* site_class_name - Space class name
+	* site_is_template - Space is a template
 	* tree_path
-	* pool6_id
-	* pool6_name
-	* pool6_class_name
-	* pool6_read_only
+	* pool6_id - Pool6 ID
+	* pool6_name - Pool6 name
+	* pool6_class_name - Pool6 class name
+	* pool6_read_only - Pool6 is in read only mode
 	* start_ip6_addr
 	* end_ip6_addr
 	* pool6_start_ip6_addr
 	* pool6_end_ip6_addr
 	* pool6_size
 	* parent_subnet6_name
-	* parent_subnet6_id
+	* parent_subnet6_id - Parent Subnet6 ID
 	* vlsm_subnet6_id
 	* parent_subnet6_prefix
 	* parent_subnet6_class_name
-	* subnet6_name
+	* subnet6_name - Subnet6 name
 	* vlsm_block6_id
-	* subnet6_id
+	* subnet6_id - Subnet6 ID
 	* subnet6_start_ip6_addr
 	* subnet6_end_ip6_addr
-	* subnet6_class_name
-	* subnet6_prefix
+	* subnet6_class_name - Subnet class name
+	* subnet6_prefix - Subnet6 prefix
 	* multistatus
-	* pool6_class_parameters
-	* pool6_class_parameters_properties
+	* pool6_class_parameters - Pool6 class parameters
+	* pool6_class_parameters_properties - Class parameters properties
 	* pool6_class_parameters_inheritance_source
-	* site_class_parameters
-	* site_class_parameters_properties
-	* subnet6_class_parameters
-	* subnet6_class_parameters_properties
+	* site_class_parameters - Space class parameters
+	* site_class_parameters_properties - Class parameters properties
+	* subnet6_class_parameters - Subnet class parameters
+	* subnet6_class_parameters_properties - Subnet class parameters properties
 
 ### Method - ip_pool6_delete
 Description
@@ -1429,7 +1424,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -1479,7 +1473,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -1529,7 +1522,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -1574,35 +1566,35 @@ Available Output Fields :
 	* free_start_ip_addr
 	* free_end_ip_addr
 	* free_scope_size
-	* ip_id
-	* site_is_template
-	* site_name
+	* ip_id - IP address ID
+	* site_is_template - Space is a template
+	* site_name - Space name
 	* tree_level
 	* tree_path
 	* tree_id_path
-	* ip_addr
-	* name
-	* mac_addr
-	* ip_class_name
-	* parent_subnet_id
+	* ip_addr - IP address
+	* name - IP address name
+	* mac_addr - IP address MAC address
+	* ip_class_name - IP address class name
+	* parent_subnet_id - Parent Subnet ID
 	* parent_subnet_name
 	* parent_subnet_size
 	* parent_vlsm_subnet_id
 	* parent_subnet_class_name
 	* parent_subnet_start_ip_addr
 	* parent_subnet_end_ip_addr
-	* subnet_name
-	* pool_name
-	* site_id
-	* subnet_id
+	* subnet_name - Subnet name
+	* pool_name - Pool name
+	* site_id - Space ID
+	* subnet_id - Subnet ID
 	* subnet_start_ip_addr
 	* subnet_end_ip_addr
-	* subnet_size
+	* subnet_size - Subnet size
 	* subnet_is_terminal
-	* lock_network_broadcast
-	* pool_class_name
-	* pool_id
-	* pool_read_only
+	* lock_network_broadcast - Lock network and broadcast addresses
+	* pool_class_name - Pool class name
+	* pool_id - Pool ID
+	* pool_read_only - Pool is in read only mode
 	* pool_row_enabled
 	* iplnetdev_name
 	* iplnetdev_id
@@ -1611,31 +1603,31 @@ Available Output Fields :
 	* iplport_portnumber
 	* iplport_ifvlan
 	* hostiface_name
-	* hostiface_id
+	* hostiface_id - Interface ID
 	* hostdev_name
-	* hostdev_id
-	* dhcphost_id
-	* dhcplease_id
+	* hostdev_id - Device ID
+	* dhcphost_id - DHCP Static ID
+	* dhcplease_id - DHCP Lease ID
 	* last_seen
 	* dhcplease_end_time
-	* site_description
-	* site_class_name
-	* subnet_class_name
-	* pool_size
+	* site_description - Space description
+	* site_class_name - Space class name
+	* subnet_class_name - Subnet class name
+	* pool_size - Pool size
 	* pool_start_ip_addr
 	* pool_end_ip_addr
 	* ip_alias
 	* multistatus
 	* tag_pool_dhcprange
-	* ip_class_parameters
-	* ip_class_parameters_properties
+	* ip_class_parameters - IP address class parameters
+	* ip_class_parameters_properties - Class parameters properties
 	* ip_class_parameters_inheritance_source
-	* pool_class_parameters
-	* pool_class_parameters_properties
-	* site_class_parameters
-	* site_class_parameters_properties
-	* subnet_class_parameters
-	* subnet_class_parameters_properties
+	* pool_class_parameters - Pool class parameters
+	* pool_class_parameters_properties - Class parameters properties
+	* site_class_parameters - Space class parameters
+	* site_class_parameters_properties - Class parameters properties
+	* subnet_class_parameters - Subnet class parameters
+	* subnet_class_parameters_properties - Subnet class parameters properties
 
 ### Method - ip_address_info
 Description
@@ -1652,35 +1644,35 @@ Available Output Fields :
 	* free_start_ip_addr
 	* free_end_ip_addr
 	* free_scope_size
-	* ip_id
-	* site_is_template
-	* site_name
+	* ip_id - IP address ID
+	* site_is_template - Space is a template
+	* site_name - Space name
 	* tree_level
 	* tree_path
 	* tree_id_path
-	* ip_addr
-	* name
-	* mac_addr
-	* ip_class_name
-	* parent_subnet_id
+	* ip_addr - IP address
+	* name - IP address name
+	* mac_addr - IP address MAC address
+	* ip_class_name - IP address class name
+	* parent_subnet_id - Parent Subnet ID
 	* parent_subnet_name
 	* parent_subnet_size
 	* parent_vlsm_subnet_id
 	* parent_subnet_class_name
 	* parent_subnet_start_ip_addr
 	* parent_subnet_end_ip_addr
-	* subnet_name
-	* pool_name
-	* site_id
-	* subnet_id
+	* subnet_name - Subnet name
+	* pool_name - Pool name
+	* site_id - Space ID
+	* subnet_id - Subnet ID
 	* subnet_start_ip_addr
 	* subnet_end_ip_addr
-	* subnet_size
+	* subnet_size - Subnet size
 	* subnet_is_terminal
-	* lock_network_broadcast
-	* pool_class_name
-	* pool_id
-	* pool_read_only
+	* lock_network_broadcast - Lock network and broadcast addresses
+	* pool_class_name - Pool class name
+	* pool_id - Pool ID
+	* pool_read_only - Pool is in read only mode
 	* pool_row_enabled
 	* iplnetdev_name
 	* iplnetdev_id
@@ -1689,31 +1681,31 @@ Available Output Fields :
 	* iplport_portnumber
 	* iplport_ifvlan
 	* hostiface_name
-	* hostiface_id
+	* hostiface_id - Interface ID
 	* hostdev_name
-	* hostdev_id
-	* dhcphost_id
-	* dhcplease_id
+	* hostdev_id - Device ID
+	* dhcphost_id - DHCP Static ID
+	* dhcplease_id - DHCP Lease ID
 	* last_seen
 	* dhcplease_end_time
-	* site_description
-	* site_class_name
-	* subnet_class_name
-	* pool_size
+	* site_description - Space description
+	* site_class_name - Space class name
+	* subnet_class_name - Subnet class name
+	* pool_size - Pool size
 	* pool_start_ip_addr
 	* pool_end_ip_addr
 	* ip_alias
 	* multistatus
 	* tag_pool_dhcprange
-	* ip_class_parameters
-	* ip_class_parameters_properties
+	* ip_class_parameters - IP address class parameters
+	* ip_class_parameters_properties - Class parameters properties
 	* ip_class_parameters_inheritance_source
-	* pool_class_parameters
-	* pool_class_parameters_properties
-	* site_class_parameters
-	* site_class_parameters_properties
-	* subnet_class_parameters
-	* subnet_class_parameters_properties
+	* pool_class_parameters - Pool class parameters
+	* pool_class_parameters_properties - Class parameters properties
+	* site_class_parameters - Space class parameters
+	* site_class_parameters_properties - Class parameters properties
+	* subnet_class_parameters - Subnet class parameters
+	* subnet_class_parameters_properties - Subnet class parameters properties
 
 ### Method - ip_address_delete
 Description
@@ -1739,7 +1731,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -1772,14 +1763,14 @@ Available Input Parameters :
 
 Available Output Fields :
 
-	* ip_addr
-	* hostaddr
-	* site_id
-	* site_name
-	* subnet_id
-	* subnet_name
-	* pool_id
-	* pool_name
+	* ip_addr - IP address
+	* hostaddr - IP address
+	* site_id - Space ID
+	* site_name - Space name
+	* subnet_id - Subnet ID
+	* subnet_name - Subnet name
+	* pool_id - Pool ID
+	* pool_name - Pool name
 
 ### Method - ip_address6_add
 Description
@@ -1812,7 +1803,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -1857,7 +1847,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -1902,60 +1891,60 @@ Available Output Fields :
 	* free_start_ip6_addr
 	* free_end_ip6_addr
 	* free_scope_size
-	* ip6_id
-	* site_name
+	* ip6_id - IP6 address ID
+	* site_name - Space name
 	* tree_level
 	* tree_path
 	* parent_subnet6_name
-	* ip6_addr
-	* ip6_name
-	* ip6_mac_addr
-	* ip6_class_name
-	* subnet6_name
+	* ip6_addr - IP6 address
+	* ip6_name - IP6 address name
+	* ip6_mac_addr - IP6 address MAC address
+	* ip6_class_name - IP6 address class name
+	* subnet6_name - Subnet6 name
 	* subnet6_is_terminal
-	* lock_network_broadcast
-	* pool6_name
-	* site_id
-	* subnet6_id
+	* lock_network_broadcast - Lock network and broadcast addresses
+	* pool6_name - Pool6 name
+	* site_id - Space ID
+	* subnet6_id - Subnet6 ID
 	* subnet6_start_ip6_addr
 	* subnet6_end_ip6_addr
 	* subnet6_size
-	* subnet_size
-	* subnet6_prefix
+	* subnet_size - Subnet size
+	* subnet6_prefix - Subnet6 prefix
 	* parent_subnet6_size
-	* parent_subnet6_id
+	* parent_subnet6_id - Parent Subnet6 ID
 	* parent_vlsm_subnet6_id
-	* pool6_class_name
-	* pool6_id
-	* pool6_read_only
+	* pool6_class_name - Pool6 class name
+	* pool6_id - Pool6 ID
+	* pool6_read_only - Pool6 is in read only mode
 	* pool6_row_enabled
 	* hostiface_name
-	* hostiface_id
+	* hostiface_id - Interface ID
 	* hostdev_name
-	* hostdev_id
-	* site_description
-	* site_class_name
+	* hostdev_id - Device ID
+	* site_description - Space description
+	* site_class_name - Space class name
 	* row_enabled
-	* parent_site_name
+	* parent_site_name - Space parent name
 	* parent_subnet6_class_name
 	* parent_subnet6_prefix
 	* parent_subnet6_start_ip6_addr
 	* parent_subnet6_end_ip6_addr
 	* vlsm_subnet6_id
-	* subnet6_class_name
+	* subnet6_class_name - Subnet class name
 	* pool6_size
 	* pool6_start_ip6_addr
 	* pool6_end_ip6_addr
 	* ip6_alias
-	* ip6_class_parameters
-	* ip6_class_parameters_properties
+	* ip6_class_parameters - IP6 address class parameters
+	* ip6_class_parameters_properties - Class parameters properties
 	* ip6_class_parameters_inheritance_source
-	* pool6_class_parameters
-	* pool6_class_parameters_properties
-	* site_class_parameters
-	* site_class_parameters_properties
-	* subnet6_class_parameters
-	* subnet6_class_parameters_properties
+	* pool6_class_parameters - Pool6 class parameters
+	* pool6_class_parameters_properties - Class parameters properties
+	* site_class_parameters - Space class parameters
+	* site_class_parameters_properties - Class parameters properties
+	* subnet6_class_parameters - Subnet class parameters
+	* subnet6_class_parameters_properties - Subnet class parameters properties
 
 ### Method - ip_address6_info
 Description
@@ -1972,60 +1961,60 @@ Available Output Fields :
 	* free_start_ip6_addr
 	* free_end_ip6_addr
 	* free_scope_size
-	* ip6_id
-	* site_name
+	* ip6_id - IP6 address ID
+	* site_name - Space name
 	* tree_level
 	* tree_path
 	* parent_subnet6_name
-	* ip6_addr
-	* ip6_name
-	* ip6_mac_addr
-	* ip6_class_name
-	* subnet6_name
+	* ip6_addr - IP6 address
+	* ip6_name - IP6 address name
+	* ip6_mac_addr - IP6 address MAC address
+	* ip6_class_name - IP6 address class name
+	* subnet6_name - Subnet6 name
 	* subnet6_is_terminal
-	* lock_network_broadcast
-	* pool6_name
-	* site_id
-	* subnet6_id
+	* lock_network_broadcast - Lock network and broadcast addresses
+	* pool6_name - Pool6 name
+	* site_id - Space ID
+	* subnet6_id - Subnet6 ID
 	* subnet6_start_ip6_addr
 	* subnet6_end_ip6_addr
 	* subnet6_size
-	* subnet_size
-	* subnet6_prefix
+	* subnet_size - Subnet size
+	* subnet6_prefix - Subnet6 prefix
 	* parent_subnet6_size
-	* parent_subnet6_id
+	* parent_subnet6_id - Parent Subnet6 ID
 	* parent_vlsm_subnet6_id
-	* pool6_class_name
-	* pool6_id
-	* pool6_read_only
+	* pool6_class_name - Pool6 class name
+	* pool6_id - Pool6 ID
+	* pool6_read_only - Pool6 is in read only mode
 	* pool6_row_enabled
 	* hostiface_name
-	* hostiface_id
+	* hostiface_id - Interface ID
 	* hostdev_name
-	* hostdev_id
-	* site_description
-	* site_class_name
+	* hostdev_id - Device ID
+	* site_description - Space description
+	* site_class_name - Space class name
 	* row_enabled
-	* parent_site_name
+	* parent_site_name - Space parent name
 	* parent_subnet6_class_name
 	* parent_subnet6_prefix
 	* parent_subnet6_start_ip6_addr
 	* parent_subnet6_end_ip6_addr
 	* vlsm_subnet6_id
-	* subnet6_class_name
+	* subnet6_class_name - Subnet class name
 	* pool6_size
 	* pool6_start_ip6_addr
 	* pool6_end_ip6_addr
 	* ip6_alias
-	* ip6_class_parameters
-	* ip6_class_parameters_properties
+	* ip6_class_parameters - IP6 address class parameters
+	* ip6_class_parameters_properties - Class parameters properties
 	* ip6_class_parameters_inheritance_source
-	* pool6_class_parameters
-	* pool6_class_parameters_properties
-	* site_class_parameters
-	* site_class_parameters_properties
-	* subnet6_class_parameters
-	* subnet6_class_parameters_properties
+	* pool6_class_parameters - Pool6 class parameters
+	* pool6_class_parameters_properties - Class parameters properties
+	* site_class_parameters - Space class parameters
+	* site_class_parameters_properties - Class parameters properties
+	* subnet6_class_parameters - Subnet class parameters
+	* subnet6_class_parameters_properties - Subnet class parameters properties
 
 ### Method - ip_address6_delete
 Description
@@ -2053,7 +2042,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -2086,14 +2074,14 @@ Available Input Parameters :
 
 Available Output Fields :
 
-	* ip6_addr
+	* ip6_addr - IP6 address
 	* hostaddr6
-	* site_id
-	* site_name
-	* subnet_id
-	* subnet6_name
-	* pool6_id
-	* pool6_name
+	* site_id - Space ID
+	* site_name - Space name
+	* subnet_id - Subnet ID
+	* subnet6_name - Subnet6 name
+	* pool6_id - Pool6 ID
+	* pool6_name - Pool6 name
 
 ### Method - ip_alias_add
 Description
@@ -2120,7 +2108,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -2168,7 +2155,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -2207,7 +2193,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -2255,7 +2240,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -2294,7 +2278,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -2333,7 +2316,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -2374,15 +2356,15 @@ Available Input Parameters :
 
 Available Output Fields :
 
-	* vlmdomain_id
-	* vlmdomain_name
-	* vlmdomain_start_vlan_id
-	* vlmdomain_end_vlan_id
-	* vlmdomain_description
-	* vlmdomain_class_name
+	* vlmdomain_id - VLAN Domain ID
+	* vlmdomain_name - VLAN Domain name
+	* vlmdomain_start_vlan_id - VLAN Domain start VLAN ID
+	* vlmdomain_end_vlan_id - VLAN Domain end VLAN ID
+	* vlmdomain_description - VLAN Domain description
+	* vlmdomain_class_name - VLAN Domain class name
 	* row_enabled
-	* vlmdomain_class_parameters
-	* vlmdomain_class_parameters_properties
+	* vlmdomain_class_parameters - VLAN Domain class parameters
+	* vlmdomain_class_parameters_properties - Class parameters properties
 	* vlmdomain_class_parameters_inheritance_source
 
 ### Method - vlm_domain_info
@@ -2396,15 +2378,15 @@ Available Input Parameters :
 
 Available Output Fields :
 
-	* vlmdomain_id
-	* vlmdomain_name
-	* vlmdomain_start_vlan_id
-	* vlmdomain_end_vlan_id
-	* vlmdomain_description
-	* vlmdomain_class_name
+	* vlmdomain_id - VLAN Domain ID
+	* vlmdomain_name - VLAN Domain name
+	* vlmdomain_start_vlan_id - VLAN Domain start VLAN ID
+	* vlmdomain_end_vlan_id - VLAN Domain end VLAN ID
+	* vlmdomain_description - VLAN Domain description
+	* vlmdomain_class_name - VLAN Domain class name
 	* row_enabled
-	* vlmdomain_class_parameters
-	* vlmdomain_class_parameters_properties
+	* vlmdomain_class_parameters - VLAN Domain class parameters
+	* vlmdomain_class_parameters_properties - Class parameters properties
 	* vlmdomain_class_parameters_inheritance_source
 
 ### Method - vlm_domain_delete
@@ -2424,7 +2406,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -2466,7 +2447,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -2508,7 +2488,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -2549,25 +2528,25 @@ Available Input Parameters :
 
 Available Output Fields :
 
-	* vlmdomain_id
-	* vlmrange_id
-	* vlmdomain_name
-	* vlmdomain_start_vlan_id
-	* vlmdomain_end_vlan_id
-	* vlmdomain_class_name
-	* vlmdomain_description
-	* vlmrange_name
-	* vlmrange_start_vlan_id
-	* vlmrange_end_vlan_id
-	* vlmrange_description
-	* vlmrange_disable_overlapping
-	* vlmrange_class_name
+	* vlmdomain_id - VLAN Domain ID
+	* vlmrange_id - VLAN Range ID
+	* vlmdomain_name - VLAN Domain name
+	* vlmdomain_start_vlan_id - VLAN Domain start VLAN ID
+	* vlmdomain_end_vlan_id - VLAN Domain end VLAN ID
+	* vlmdomain_class_name - VLAN Domain class name
+	* vlmdomain_description - VLAN Domain description
+	* vlmrange_name - VLAN Range name
+	* vlmrange_start_vlan_id - VLAN Range start VLAN ID
+	* vlmrange_end_vlan_id - VLAN Range end VLAN ID
+	* vlmrange_description - VLAN Range description
+	* vlmrange_disable_overlapping - VLAN Range disable overlapping
+	* vlmrange_class_name - VLAN Range class name
 	* row_enabled
-	* vlmrange_class_parameters
-	* vlmrange_class_parameters_properties
+	* vlmrange_class_parameters - VLAN Range class parameters
+	* vlmrange_class_parameters_properties - Class parameters properties
 	* vlmrange_class_parameters_inheritance_source
-	* vlmdomain_class_parameters
-	* vlmdomain_class_parameters_properties
+	* vlmdomain_class_parameters - VLAN Domain class parameters
+	* vlmdomain_class_parameters_properties - Class parameters properties
 
 ### Method - vlm_range_info
 Description
@@ -2580,25 +2559,25 @@ Available Input Parameters :
 
 Available Output Fields :
 
-	* vlmdomain_id
-	* vlmrange_id
-	* vlmdomain_name
-	* vlmdomain_start_vlan_id
-	* vlmdomain_end_vlan_id
-	* vlmdomain_class_name
-	* vlmdomain_description
-	* vlmrange_name
-	* vlmrange_start_vlan_id
-	* vlmrange_end_vlan_id
-	* vlmrange_description
-	* vlmrange_disable_overlapping
-	* vlmrange_class_name
+	* vlmdomain_id - VLAN Domain ID
+	* vlmrange_id - VLAN Range ID
+	* vlmdomain_name - VLAN Domain name
+	* vlmdomain_start_vlan_id - VLAN Domain start VLAN ID
+	* vlmdomain_end_vlan_id - VLAN Domain end VLAN ID
+	* vlmdomain_class_name - VLAN Domain class name
+	* vlmdomain_description - VLAN Domain description
+	* vlmrange_name - VLAN Range name
+	* vlmrange_start_vlan_id - VLAN Range start VLAN ID
+	* vlmrange_end_vlan_id - VLAN Range end VLAN ID
+	* vlmrange_description - VLAN Range description
+	* vlmrange_disable_overlapping - VLAN Range disable overlapping
+	* vlmrange_class_name - VLAN Range class name
 	* row_enabled
-	* vlmrange_class_parameters
-	* vlmrange_class_parameters_properties
+	* vlmrange_class_parameters - VLAN Range class parameters
+	* vlmrange_class_parameters_properties - Class parameters properties
 	* vlmrange_class_parameters_inheritance_source
-	* vlmdomain_class_parameters
-	* vlmdomain_class_parameters_properties
+	* vlmdomain_class_parameters - VLAN Domain class parameters
+	* vlmdomain_class_parameters_properties - Class parameters properties
 
 ### Method - vlm_range_delete
 Description
@@ -2619,7 +2598,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -2656,7 +2634,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -2693,7 +2670,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 
@@ -2734,22 +2710,22 @@ Available Input Parameters :
 
 Available Output Fields :
 
-	* vlmdomain_id
-	* vlmdomain_name
-	* vlmdomain_start_vlan_id
-	* vlmdomain_end_vlan_id
-	* vlmdomain_class_name
-	* vlmdomain_description
-	* vlmrange_name
-	* vlmrange_id
+	* vlmdomain_id - VLAN Domain ID
+	* vlmdomain_name - VLAN Domain name
+	* vlmdomain_start_vlan_id - VLAN Domain start VLAN ID
+	* vlmdomain_end_vlan_id - VLAN Domain end VLAN ID
+	* vlmdomain_class_name - VLAN Domain class name
+	* vlmdomain_description - VLAN Domain description
+	* vlmrange_name - VLAN Range name
+	* vlmrange_id - VLAN Range ID
 	* vlmrange_row_enabled
-	* vlmrange_start_vlan_id
-	* vlmrange_end_vlan_id
-	* vlmrange_class_name
-	* vlmrange_description
-	* vlmvlan_id
-	* vlmvlan_name
-	* vlmvlan_vlan_id
+	* vlmrange_start_vlan_id - VLAN Range start VLAN ID
+	* vlmrange_end_vlan_id - VLAN Range end VLAN ID
+	* vlmrange_class_name - VLAN Range class name
+	* vlmrange_description - VLAN Range description
+	* vlmvlan_id - VLAN ID
+	* vlmvlan_name - VLAN name
+	* vlmvlan_vlan_id - VLAN vlan id
 	* row_enabled
 
 ### Method - vlm_vlan_info
@@ -2763,22 +2739,22 @@ Available Input Parameters :
 
 Available Output Fields :
 
-	* vlmdomain_id
-	* vlmdomain_name
-	* vlmdomain_start_vlan_id
-	* vlmdomain_end_vlan_id
-	* vlmdomain_class_name
-	* vlmdomain_description
-	* vlmrange_name
-	* vlmrange_id
+	* vlmdomain_id - VLAN Domain ID
+	* vlmdomain_name - VLAN Domain name
+	* vlmdomain_start_vlan_id - VLAN Domain start VLAN ID
+	* vlmdomain_end_vlan_id - VLAN Domain end VLAN ID
+	* vlmdomain_class_name - VLAN Domain class name
+	* vlmdomain_description - VLAN Domain description
+	* vlmrange_name - VLAN Range name
+	* vlmrange_id - VLAN Range ID
 	* vlmrange_row_enabled
-	* vlmrange_start_vlan_id
-	* vlmrange_end_vlan_id
-	* vlmrange_class_name
-	* vlmrange_description
-	* vlmvlan_id
-	* vlmvlan_name
-	* vlmvlan_vlan_id
+	* vlmrange_start_vlan_id - VLAN Range start VLAN ID
+	* vlmrange_end_vlan_id - VLAN Range end VLAN ID
+	* vlmrange_class_name - VLAN Range class name
+	* vlmrange_description - VLAN Range description
+	* vlmvlan_id - VLAN ID
+	* vlmvlan_name - VLAN name
+	* vlmvlan_vlan_id - VLAN vlan id
 	* row_enabled
 
 ### Method - vlm_vlan_delete
@@ -2803,7 +2779,6 @@ Available Input Parameters :
 	* no_rule_exec - Dont execute rules
 	* only_rule_exec - Only execute rules
 	* additional_parameters - Additional parameters passed to rules
-	* no_usertracking - Do not store information in usertracking
 
 Available Output Fields :
 

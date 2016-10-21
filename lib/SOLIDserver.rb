@@ -125,6 +125,7 @@ module SOLIDserver
     # Requires :
     def doc()
       buffer = ""
+      descr_mapping = {}
 
       buffer += "## Available Methods :\n\n"
       buffer += "This GEM wraps the following SOLIDserver API calls, allowing you to interract with SOLIDserver DDI solution.\n"
@@ -180,12 +181,27 @@ module SOLIDserver
                 elsif (item['name'] == "ORDERBY")
                   buffer += "\t* orderby - Can be used to order the result using any output field in an SQL fashion.\n"
                 else
-                  buffer += "\t* " + item['name'] + (item.has_key?('descr') ? " - " +  item['descr'] : "") + "\n"
+                  descr_key = service_name[/^(ip|vlm)/]
+                  if (item.has_key?('descr'))
+                    descr_mapping[descr_key.to_s + '_' + item['name']] = item['descr']
+                  end
+                  if !(item.has_key?('descr') && item['name'].match(/^no_usertracking/))
+                    buffer += "\t* " + item['name'] + (item.has_key?('descr') ? " - " +  item['descr'] : "") + "\n"
+                  end
                 end
               else
                 if (first_output == true)
                   buffer += "\nAvailable Output Fields :\n\n"
                   first_output = false
+                end
+
+                descr_key = service_name[/^(ip|vlm)/]
+                if (item.has_key?('descr'))
+                  descr_mapping[descr_key.to_s + '_' + item['name']] = item['descr']
+                else
+                  if (descr_mapping.has_key?(descr_key.to_s + '_' + item['name']))
+                    item['descr'] = descr_mapping[descr_key + '_' + item['name']]
+                  end
                 end
                 buffer += "\t* " + item['name'] + (item.has_key?('descr') ? " - " + item['descr'] : "") + "\n"
               end
