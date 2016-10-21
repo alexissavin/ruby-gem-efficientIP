@@ -117,7 +117,23 @@ module SOLIDserver
         "vlm_vlan_count" => ["vlmvlan_count", "This service returns the number of VLANs matching optional condition(s)."],
         "vlm_vlan_list" => ["vlmvlan_list", "This service returns a list of VLANs matching optional condition(s)."],
         "vlm_vlan_info" => ["vlmvlan_info", "This service returns information about a specific VLAN."],
-        "vlm_vlan_delete" => ["vlm_vlan_delete", "This service allows to delete a specific VLAN."]
+        "vlm_vlan_delete" => ["vlm_vlan_delete", "This service allows to delete a specific VLAN."],
+        "dns_server_count" => ["dns_server_count", "This service returns the number of DNS Servers matching optional condition(s)."],
+        "dns_server_list" => ["dns_server_list", "This service returns a list of DNS Servers matching optional condition(s)."],
+        "dns_server_info" => ["dns_server_info", "This service returns information about a specific DNS Server."],
+        "dns_view_count" => ["dns_view_count", "This service returns the number of DNS Views matching optional condition(s)."],
+        "dns_view_list" => ["dns_view_list", "This service returns a list of DNS Views matching optional condition(s)."],
+        "dns_view_info" => ["dns_view_info", "This service returns information about a specific DNS View."],
+        "dns_zone_add" => ["dns_zone_add", "This service allows to add a DNS Zone."],
+        "dns_zone_count" => ["dns_zone_count", "This service returns the number of DNS Zones matching optional condition(s)."],
+        "dns_zone_list" => ["dns_zone_list", "This service returns a list of DNS Zones matching optional condition(s)."],
+        "dns_zone_info" => ["dns_zone_info", "This service returns information about a specific DNS Zone."],
+        "dns_zone_delete" => ["dns_zone_delete", "This service allows to delete a specific DNS Zone."],
+        "dns_rr_add" => ["dns_rr_add", "This service allows to add a DNS Resource Record."],
+        "dns_rr_count" => ["dns_rr_count", "This service returns the number of DNS Resource Records matching optional condition(s)."],
+        "dns_rr_list" => ["dns_rr_list", "This service returns a list of DNS Resource Records matching optional condition(s)."],
+        "dns_rr_info" => ["dns_rr_info", "This service returns information about a specific DNS Resource Record."],
+        "dns_rr_delete" => ["dns_rr_delete", "This service allows to delete a specific DNS Resource Record."]
       }
     end
 
@@ -181,7 +197,7 @@ module SOLIDserver
                 elsif (item['name'] == "ORDERBY")
                   buffer += "\t* orderby - Can be used to order the result using any output field in an SQL fashion.\n"
                 else
-                  descr_key = service_name[/^(ip|vlm)/]
+                  descr_key = service_name[/^(ip|vlm|dns)/]
                   if (item.has_key?('descr'))
                     descr_mapping[descr_key.to_s + '_' + item['name']] = item['descr']
                   end
@@ -195,7 +211,8 @@ module SOLIDserver
                   first_output = false
                 end
 
-                descr_key = service_name[/^(ip|vlm)/]
+                descr_key = service_name[/^(ip|vlm|dns)/]
+
                 if (item.has_key?('descr'))
                   descr_mapping[descr_key.to_s + '_' + item['name']] = item['descr']
                 else
@@ -260,7 +277,7 @@ module SOLIDserver
     #   method : called method name
     #   args : called method arguments
     def method_missing(method, *args)
-      if (service =  method.to_s.match(/^(ip|vlm)_(site|subnet6?|pool6?|address6?|alias6?|domain|range|vlan)_(add|update|info|list|delete|count)$/))
+      if (service =  method.to_s.match(/^(ip|vlm|dns)_(site|subnet6?|pool6?|address6?|alias6?|domain|range|vlan|server|view|zone|rr)_(add|update|info|list|delete|count)$/))
         r_module, r_object, r_action = service.captures
 
         if (@servicemapper.has_key?(service.to_s))
