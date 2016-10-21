@@ -87,10 +87,6 @@ This clause can be applied on any output field combination using an SQL ANSI sty
 
 This GEM wraps the following SOLIDserver API calls, allowing you to interract with SOLIDserver DDI solution.
 
-## Available Methods :
-
-This GEM wraps the following SOLIDserver API calls, allowing you to interract with SOLIDserver DDI solution.
-
 ### Method - ip_site_add
 Description
 
