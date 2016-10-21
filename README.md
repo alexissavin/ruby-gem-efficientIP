@@ -83,7 +83,7 @@ Some methods allow to filter their output result using a WHERE parameter.
 
 This clause can be applied on any output field combination using an SQL ANSI style clause.
 
-## Available Methods :
+## Available Methods
 
 This GEM wraps the following SOLIDserver API calls, allowing you to interract with SOLIDserver DDI solution.
 
