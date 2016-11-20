@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "SOLIDserver"
-  spec.version       = "0.0.9"
+  spec.version       = "0.0.10"
   spec.date          = "2016-09-09"
   spec.authors       = ["Alexis Savin"]
   spec.email         = ["alexis.savin@gmail.com"]
@@ -20,4 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'rest-client', '~> 2.0', '>= 2.0.0'
   spec.add_runtime_dependency 'json', '~> 1.8', '>= 1.8.3'
+
+  spec.add_development_dependency "bundler", "~> 1.3"
+  spec.add_development_dependency "rspec"
 end

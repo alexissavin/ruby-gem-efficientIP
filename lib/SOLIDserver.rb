@@ -14,7 +14,7 @@ module SOLIDserver
     end
   end
 
-  class Error < StandardError
+  class SOLIDserverError < StandardError
   end
 
   class SOLIDserver
@@ -47,6 +47,10 @@ module SOLIDserver
       @password = Base64.strict_encode64(password)
 
       # Map the new naming convention against the old one
+      #FIXME# Filtering json hash content can be done this way
+      #h1 = {:a => 1, :b => 2, :c => 3, :d => 4}
+      #h1.slice(:a, :b)         # return {:a=>1, :b=>2}, but h1 is not changed
+      #h2 = h1.slice!(:a, :b)   # h1 = {:a=>1, :b=>2}, h2 = {:c => 3, :d => 4}
       @servicemapper = {
         "ip_site_add" => ["ip_site_add", "This service allows to add an IP address Space."],
         "ip_site_update" => ["ip_site_add", "This service allows to update an IP address Space."],
@@ -117,23 +121,7 @@ module SOLIDserver
         "vlm_vlan_count" => ["vlmvlan_count", "This service returns the number of VLANs matching optional condition(s)."],
         "vlm_vlan_list" => ["vlmvlan_list", "This service returns a list of VLANs matching optional condition(s)."],
         "vlm_vlan_info" => ["vlmvlan_info", "This service returns information about a specific VLAN."],
-        "vlm_vlan_delete" => ["vlm_vlan_delete", "This service allows to delete a specific VLAN."],
-        "dns_server_count" => ["dns_server_count", "This service returns the number of DNS Servers matching optional condition(s)."],
-        "dns_server_list" => ["dns_server_list", "This service returns a list of DNS Servers matching optional condition(s)."],
-        "dns_server_info" => ["dns_server_info", "This service returns information about a specific DNS Server."],
-        "dns_view_count" => ["dns_view_count", "This service returns the number of DNS Views matching optional condition(s)."],
-        "dns_view_list" => ["dns_view_list", "This service returns a list of DNS Views matching optional condition(s)."],
-        "dns_view_info" => ["dns_view_info", "This service returns information about a specific DNS View."],
-        "dns_zone_add" => ["dns_zone_add", "This service allows to add a DNS Zone."],
-        "dns_zone_count" => ["dns_zone_count", "This service returns the number of DNS Zones matching optional condition(s)."],
-        "dns_zone_list" => ["dns_zone_list", "This service returns a list of DNS Zones matching optional condition(s)."],
-        "dns_zone_info" => ["dns_zone_info", "This service returns information about a specific DNS Zone."],
-        "dns_zone_delete" => ["dns_zone_delete", "This service allows to delete a specific DNS Zone."],
-        "dns_rr_add" => ["dns_rr_add", "This service allows to add a DNS Resource Record."],
-        "dns_rr_count" => ["dns_rr_count", "This service returns the number of DNS Resource Records matching optional condition(s)."],
-        "dns_rr_list" => ["dns_rr_list", "This service returns a list of DNS Resource Records matching optional condition(s)."],
-        "dns_rr_info" => ["dns_rr_info", "This service returns information about a specific DNS Resource Record."],
-        "dns_rr_delete" => ["dns_rr_delete", "This service allows to delete a specific DNS Resource Record."]
+        "vlm_vlan_delete" => ["vlm_vlan_delete", "This service allows to delete a specific VLAN."]
       }
     end
 
@@ -147,7 +135,7 @@ module SOLIDserver
       buffer += "This GEM wraps the following SOLIDserver API calls, allowing you to interract with SOLIDserver DDI solution.\n"
 
       begin
-        @servicemapper.each do |service_name, service_mapped|
+        @servicemapper.each do |service_name, service_mapped, parameters_mapper|
           buffer += "\n### Method - #{service_name}\n"
           rest_answer = RestClient::Request.execute(
             url: sprintf("%s/%s", @resturl, service_mapped[0]),
@@ -228,7 +216,7 @@ module SOLIDserver
 
         return(buffer)
       rescue RestClient::ExceptionWithResponse => rest_error
-        raise SOLIDserver::Error.new("SOLIDserver REST call error : #{rest_error.response}")
+        raise SOLIDserverError.new("SOLIDserver REST call error : - TEST")
       end
     end
 
@@ -268,7 +256,7 @@ module SOLIDserver
 
         return(rest_answer)
       rescue RestClient::ExceptionWithResponse => rest_error
-        raise SOLIDserver::Error.new("SOLIDserver REST call error : #{rest_error.response}")
+        raise SOLIDserverError.new("SOLIDserver REST call error : #{rest_error.message}")
       end
     end
 
