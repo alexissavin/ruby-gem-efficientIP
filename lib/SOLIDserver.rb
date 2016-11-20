@@ -135,7 +135,7 @@ module SOLIDserver
       buffer += "This GEM wraps the following SOLIDserver API calls, allowing you to interract with SOLIDserver DDI solution.\n"
 
       begin
-        @servicemapper.each do |service_name, service_mapped, parameters_mapper|
+        @servicemapper.each do |service_name, service_mapped|
           buffer += "\n### Method - #{service_name}\n"
           rest_answer = RestClient::Request.execute(
             url: sprintf("%s/%s", @resturl, service_mapped[0]),
@@ -266,7 +266,7 @@ module SOLIDserver
     #   args : called method arguments
     def method_missing(method, *args)
       if (service =  method.to_s.match(/^(ip|vlm|dns)_(site|subnet6?|pool6?|address6?|alias6?|domain|range|vlan|server|view|zone|rr)_(add|update|info|list|delete|count)$/))
-        r_module, r_object, r_action = service.captures
+        r_module, r_object, r_action = service.capturesmeeting
 
         if (@servicemapper.has_key?(service.to_s))
           r_mapped_service = @servicemapper[service.to_s][0]
