@@ -1,9 +1,14 @@
 # SOLIDserver Gem
 
-This Gem allows to easily interact with SOLIDserver's REST API.
+This Gem allows to easily interact with [SOLIDserver](http://www.efficientip.com/products/solidserver/)'s REST API.
 It allows managing all IPAM objects through CRUD operations.
 
 This GEM is compatible with SOLIDserver version 6.0.0 and higher.
+
+It can be easily used within :
+* Ruby code - See [rubygems.org](https://rubygems.org/)
+* [CHEF](https://www.chef.io/chef/) - See [this blog post](https://blog.chef.io/2009/06/01/cool-chef-tricks-install-and-use-rubygems-in-a-chef-run/)
+* [Puppet](https://puppet.com) - See [the puppet documentation](https://docs.puppet.com/puppetserver/latest/gems.html#installing-gems-for-use-with-development)
 
 # Install
 
