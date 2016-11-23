@@ -1,3 +1,5 @@
+[![Build status](https://travis-ci.org/alexissavin/ruby-gem-efficientIP.svg)](https://travis-ci.org/alexissavin/ruby-gem-efficientIP)
+
 # SOLIDserver Gem
 
 This Gem allows to easily interact with [SOLIDserver](http://www.efficientip.com/products/solidserver/)'s REST API.
