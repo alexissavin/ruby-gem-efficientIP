@@ -237,7 +237,7 @@ module SOLIDserver
             key = key.to_s.upcase()
           end
 
-          rest_args += '#{key}=' + ERB::Util.url_encode(value.to_s) + '&'
+          rest_args += key.to_s + '=' + ERB::Util.url_encode(value.to_s) + '&'
         end
       end
 
@@ -266,7 +266,7 @@ module SOLIDserver
     #   args : called method arguments
     def method_missing(method, *args)
       if (service =  method.to_s.match(/^(ip|vlm|dns)_(site|subnet6?|pool6?|address6?|alias6?|domain|range|vlan|server|view|zone|rr)_(add|update|info|list|delete|count)$/))
-        r_module, r_object, r_action = service.capturesmeeting
+        r_module, r_object, r_action = service.captures
 
         if (@servicemapper.has_key?(service.to_s))
           r_mapped_service = @servicemapper[service.to_s][0]

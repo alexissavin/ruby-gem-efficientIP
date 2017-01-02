@@ -1,6 +1,6 @@
 [![Build status](https://travis-ci.org/alexissavin/ruby-gem-efficientIP.svg)](https://travis-ci.org/alexissavin/ruby-gem-efficientIP)
 
-# SOLIDserver Gem
+# EfficientIP SOLIDserver Gem
 
 This Gem allows to easily interact with [SOLIDserver](http://www.efficientip.com/products/solidserver/)'s REST API.
 It allows managing all IPAM objects through CRUD operations.
