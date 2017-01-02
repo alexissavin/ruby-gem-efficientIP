@@ -3,17 +3,22 @@ require 'base64'
 require 'json'
 require 'erb'
 
+# Extend Net::HTTPHeader to comply with case sensitive headers
+module Net::HTTPHeader
+    def capitalize(name)
+        if (name.downcase == 'x-ipm-username')
+            return 'X-IPM-Username'
+        elsif (name.downcase == 'x-ipm-password')
+            return 'X-IPM-Password'
+        else
+            return name.to_s.split(/-/).map {|s| s.capitalize }.join('-')
+        end
+    end
+
+    private :capitalize
+end
+
 module SOLIDserver
-  class CSString < String
-    def downcase
-      self
-    end
-
-    def capitalize
-      self
-    end
-  end
-
   class SOLIDserverError < StandardError
   end
 
@@ -144,8 +149,8 @@ module SOLIDserver
             timeout: @timeout,
             verify_ssl: @sslcheck,
             headers: {
-              CSString.new('X-IPM-Username') => @username,
-              CSString.new('X-IPM-Password') => @password
+              'X-IPM-Username' => @username,
+              'X-IPM-Password' => @password
             }
           )
 
@@ -249,8 +254,8 @@ module SOLIDserver
           timeout: @timeout,
           verify_ssl: @sslcheck,
           headers: {
-            CSString.new('X-IPM-Username') => @username,
-            CSString.new('X-IPM-Password') => @password
+            'X-IPM-Username' => @username,
+            'X-IPM-Password' => @password
           }
         )
 
