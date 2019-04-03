@@ -261,7 +261,7 @@ module SOLIDserver
 
         return(rest_answer)
       rescue RestClient::ExceptionWithResponse => rest_error
-        raise SOLIDserverError.new('SOLIDserver REST call error : #{rest_error.message}')
+        raise SOLIDserverError.new("SOLIDserver REST call error : #{rest_error.message}")
       end
     end
 
