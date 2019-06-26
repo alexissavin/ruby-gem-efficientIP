@@ -4,8 +4,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'SOLIDserver'
-  spec.version       = '0.0.10'
-  spec.date          = '2016-09-09'
+  spec.version       = '0.0.11'
+  spec.date          = '2019-03-04'
   spec.authors       = ['Alexis Savin']
   spec.email         = ['alexis.savin@gmail.com']
   spec.description   = %q{A Ruby Object wrapper of SOLIDserver's REST API}
